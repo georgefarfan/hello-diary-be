@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input GetPhaseInput {
+  id: String!
+}
+
+type Mutation {
+  createPhase(phaseInput: PhaseInput!): Phase!
+  removePhase(removePhaseInput: RemovePhaseInput!): Phase!
+  updatePhrase(updatePhraseInput: UpdatePhraseInput!): Phase!
+}
+
+type Phase {
+  description: String!
+  id: String!
+  title: String!
+}
+
+input PhaseInput {
+  description: String!
+  title: String!
+}
+
+type Query {
+  getPhase(getPhaseInput: GetPhaseInput!): Phase!
+  phases: [Phase!]!
+}
+
+input RemovePhaseInput {
+  id: String!
+}
+
+input UpdatePhraseInput {
+  description: String!
+  id: String!
+  title: String!
+}
