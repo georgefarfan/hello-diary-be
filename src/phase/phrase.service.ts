@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { Phase } from './dtos/phrase.entity';
-import { PhaseInput, UpdatePhraseInput } from './dtos/create-phase-input';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model, mongo } from 'mongoose';
+import { Injectable } from "@nestjs/common";
+import { Phase } from "./dtos/phrase.entity";
+import { PhaseInput, UpdatePhraseInput } from "./input/create-phase-input";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, mongo } from "mongoose";
 
 @Injectable()
 export class PhaseService {
@@ -31,7 +31,7 @@ export class PhaseService {
               description: updatePhraseInput.description,
             },
           },
-          { new: true }, // To return the updated post, not the old one
+          { new: true } // To return the updated post, not the old one
         )
         .exec();
       return updatedPhrase;
@@ -44,7 +44,7 @@ export class PhaseService {
     try {
       const phase = await this.phaseModel.findOne({ _id: id });
       if (!phase) {
-        return 'Phase not found';
+        return "Phase not found";
       }
       return phase;
     } catch (error) {
@@ -57,7 +57,7 @@ export class PhaseService {
       const phase = await this.phaseModel.find();
 
       if (!phase) {
-        return 'Phase not found';
+        return "Phase not found";
       }
       return phase;
     } catch (error) {
